@@ -1,0 +1,22 @@
+name: Test compilation
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-api:
+    name: Compile
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Compilation
+        run: npm run build
