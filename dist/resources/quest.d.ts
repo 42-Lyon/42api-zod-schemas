@@ -4,6 +4,7 @@ export declare const intraQuestSchema: z.ZodObject<{
     name: z.ZodString;
 }, z.z.core.$strip>;
 export type intraQuest = z.infer<typeof intraQuestSchema>;
+/******************************************************************************/
 export declare const intraQuestsUserSchema: z.ZodObject<{
     id: z.ZodNumber;
     quest_id: z.ZodNumber;

@@ -16,6 +16,7 @@ export declare const intraProjectSchema: z.ZodObject<{
     }, z.z.core.$strip>>;
 }, z.z.core.$strip>;
 export type intraProject = z.infer<typeof intraProjectSchema>;
+/******************************************************************************/
 export declare const intraProjectsUserSchema: z.ZodObject<{
     id: z.ZodNumber;
     user: z.ZodObject<{

@@ -5,6 +5,7 @@ export declare const intraTeamSchema: z.ZodObject<{
     status: z.ZodString;
 }, z.z.core.$strip>;
 export type intraTeam = z.infer<typeof intraTeamSchema>;
+/******************************************************************************/
 export declare const intraTeamsUserSchema: z.ZodObject<{
     id: z.ZodNumber;
     team_id: z.ZodNumber;
