@@ -30,7 +30,12 @@ export const intraProjectsUserSchema = z.object({
 	user: z.object({
 		id: z.number(),
 		login: z.string()
-	})
+	}),
+	teams: z.array(
+		z.object({
+			id: z.number()
+		})
+	),
 });
 
 export type intraProjectsUser = z.infer<typeof intraProjectsUserSchema>;

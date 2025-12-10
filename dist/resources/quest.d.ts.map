@@ -1,1 +1,0 @@
-{"version":3,"file":"quest.d.ts","sourceRoot":"","sources":["../../src/resources/quest.ts"],"names":[],"mappings":"AAAA,OAAO,CAAC,MAAM,KAAK,CAAC;AAEpB,eAAO,MAAM,gBAAgB;;;mBAG3B,CAAC;AAEH,MAAM,MAAM,UAAU,GAAG,CAAC,CAAC,KAAK,CAAC,OAAO,gBAAgB,CAAC,CAAC;AAE1D,gFAAgF;AAEhF,eAAO,MAAM,qBAAqB;;;;;;;mBAOhC,CAAA;AAEF,MAAM,MAAM,eAAe,GAAG,CAAC,CAAC,KAAK,CAAC,OAAO,qBAAqB,CAAC,CAAC"}
