@@ -3,6 +3,7 @@ export * from './resources/bloc.js';
 export * from './resources/campus.js';
 export * from './resources/close.js';
 export * from './resources/events.js';
+export * from './resources/experiences.js';
 export * from './resources/pool.js';
 export * from './resources/project.js';
 export * from './resources/quest.js';
