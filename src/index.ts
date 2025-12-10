@@ -6,4 +6,5 @@ export * from './resources/events.js';
 export * from './resources/pool.js';
 export * from './resources/project.js';
 export * from './resources/quest.js';
+export * from './resources/team.js';
 export * from './resources/user.js';

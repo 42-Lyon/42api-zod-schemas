@@ -22,3 +22,13 @@ export const intraProjectSchema = z.object({
 });
 
 export type intraProject = z.infer<typeof intraProjectSchema>;
+
+export const intraProjectsUserSchema = z.object({
+	id: z.number(),
+	user: z.object({
+		id: z.number(),
+		login: z.string()
+	})
+});
+
+export type intraProjectsUser = z.infer<typeof intraProjectsUserSchema>;
