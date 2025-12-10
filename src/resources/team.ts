@@ -4,11 +4,11 @@ export const intraTeamSchema = z.object({
 	id: z.number(),
 	name: z.string(),
 	status: z.string(),
-
 });
 
 export type intraTeam = z.infer<typeof intraTeamSchema>;
 
+/******************************************************************************/
 
 export const intraTeamsUserSchema = z.object({
 	id: z.number(),

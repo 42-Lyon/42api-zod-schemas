@@ -7,6 +7,8 @@ export const intraQuestSchema = z.object({
 
 export type intraQuest = z.infer<typeof intraQuestSchema>;
 
+/******************************************************************************/
+
 export const intraQuestsUserSchema = z.object({
 	id: z.number(),
 	quest_id: z.number(),
