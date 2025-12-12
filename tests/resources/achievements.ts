@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import { achievementSchema } from "../../src/resources/achievements/achievements";
+import { intraAchievementSchema } from "../../src/resources/achievements/achievements";
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -27,7 +27,7 @@ describe("achievementSchema", () => {
 		// Dynamically generate one test per achievement
 		validAchievements.forEach((achievement, index) => {
 			test(`should validate achievement: "${achievement.name}" (id: ${achievement.id})`, () => {
-				const result = achievementSchema.safeParse(achievement);
+				const result = intraAchievementSchema.safeParse(achievement);
 				if (!result.success) {
 					console.error(`\nFailed: Achievement "${achievement.name}" (index ${index}):`, achievement);
 					console.error("Validation errors:", result.error);

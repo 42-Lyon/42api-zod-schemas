@@ -45,7 +45,7 @@ async function fetchAllFixtures() {
 		rateLimitMaxRequests: RATE,
 	});
 
-	const fixturesDir = join(__dirname, "../tests/ressources/fixtures");
+	const fixturesDir = join(__dirname, "../tests/resources/fixtures");
 	mkdirSync(fixturesDir, { recursive: true });
 
 	for (const resource of RESOURCES) {

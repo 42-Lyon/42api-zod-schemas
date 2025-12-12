@@ -1,11 +1,14 @@
 import z from "zod";
 
-export const achievementSchema = z.object({
+const tierSchema = z.enum(['none', 'easy', 'medium', 'hard', 'challenge']);
+const kindSchema = z.enum(['project', 'social', 'pedagogy', 'scolarity']);
+
+export const intraAchievementSchema = z.object({
 	id: z.number(),
 	name: z.string(),
 	description: z.string(),
-	tier: z.enum(['none', 'easy', 'medium', 'hard', 'challenge']),
-	kind: z.enum(['project', 'social', 'pedagogy', 'scolarity']),
+	tier: tierSchema,
+	kind: kindSchema,
 	visible: z.boolean(),
 	image: z.string().nullable(),
 	nbr_of_success: z.number().nullable(),
@@ -16,8 +19,8 @@ export const achievementSchema = z.object({
 		id: z.number(),
 		name: z.string(),
 		description: z.string(),
-		tier: z.string(),
-		kind: z.string(),
+		tier: tierSchema,
+		kind: kindSchema,
 		visible: z.boolean(),
 		image: z.string().nullable(),
 		nbr_of_success: z.number().nullable(),
@@ -29,4 +32,4 @@ export const achievementSchema = z.object({
 	}).strict().nullable(),
 }).strict();
 
-export type intraAchievement = z.infer<typeof achievementSchema>;
+export type IntraAchievement = z.infer<typeof intraAchievementSchema>;
