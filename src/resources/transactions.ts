@@ -26,4 +26,4 @@ export const intraTransactionSchema = z.object({
 	}).strict()).nullable(),
 }).strict();
 
-export type IntraTransactionSchema = z.infer<typeof intraTransactionSchema>;
+export type IntraTransaction = z.infer<typeof intraTransactionSchema>;
