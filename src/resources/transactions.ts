@@ -17,12 +17,14 @@ export const intraTransactionSchema = z.object({
 		name: z.string(),
 		created_at: z.coerce.date(),
 		updated_at: z.coerce.date(),
-		option_values: z.array(z.object({
-			id: z.number(),
-			value: z.string(),
-			created_at: z.coerce.date(),
-			updated_at: z.coerce.date()
-		}).strict())
+		option_values: z.array(
+			z.object({
+				id: z.number(),
+				value: z.string(),
+				created_at: z.coerce.date(),
+				updated_at: z.coerce.date()
+			}).strict()
+		)
 	}).strict()).nullable(),
 }).strict();
 
