@@ -12,93 +12,60 @@ This package centralises Zod schemas for common 42 API resources so downstream p
 
 
 ```bash
-# Navigate to your project
-cd <my-awsome-project>
-
-# clone this repository:
-git clone git@github.com:42-Lyon/42API-zod-schemas.git
-# or add it as a submodule
-git submodule add git@github.com:42-Lyon/42API-zod-schemas.git
-
-# Install the module as a local package
-npm install ./42API-zod-schemas
+npm install @42-lyon/42api-zod-schemas
+# or
+pnpm add @42-lyon/42api-zod-schemas
+# or
+yarn add @42-lyon/42api-zod-schemas
 ```
 
-This package is distributed as an ESM package and ships TypeScript types in `dist`.
+The package is ESM-only and ships bundled `.d.ts` definitions.
 
-## Quick usage
-
-Import a schema and parse/validate API responses. The package exports individual resource schemas from `src/resources`.
-
-Example (ESM / TypeScript):
+## Quick start
 
 ```ts
-import { intraUserSchema } from '42api-zod-schemas';
+import { intraUserSchema, type IntraUser } from '@42-lyon/42api-zod-schemas';
 
-// Validate a response body
 const response = await fetch('https://api.intra.42.fr/v2/users/cameo');
-const data = await response.json();
+const payload = await response.json();
 
-// Throws if validation fails
-const user = intraUserSchema.parse(data);
+// Throws on invalid payload
+const user: IntraUser = intraUserSchema.parse(payload);
 
-// Or use safe parsing
-const result = intraUserSchema.safeParse(data);
+// Or keep control over the error path
+const result = intraUserSchema.safeParse(payload);
 if (!result.success) {
-	console.error('Invalid user response', result.error);
-} else {
-	// Typed as the inferred type below
-	const typedUser = result.data;
+	console.error(result.error.format());
 }
-
 ```
 
-For each schema, a related type is also available
+### Tree-shakeable imports
+
+Schemas are exported individually so you can import only what you need:
+
 ```ts
-import { intraUserSchema, type IntraUser } from '42api-zod-schemas';
-
-const user: IntraUser = {
-	...
-}
-
+import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
 ```
 
-## Exported schemas
+## Available schemas
 
-The package re-exports schemas from `src/resources`. As of this release it includes (but may not be limited to):
+- achievements (`achievements` and `achievements_users`)
+- bloc
+- campus
+- close
+- events
+- experiences
+- pool
+- project
+- quest
+- team
+- transactions
+- user
 
-- `achievement`
-- `bloc`
-- `campus`
-- `close`
-- `events`
-- `pool`
-- `project`
-- `quest`
-- `user`
-
-## Build
-
-This package is authored in TypeScript. Build with:
-
-```bash
-npm run build
-```
-
-That runs `tsc` and emits `dist` (see `package.json` `main`/`types` fields).
-
-## Contributing
-
-Contributions welcome. Suggested workflow:
-
-1. Fork the repo and create a feature branch.
-2. Add or update schemas under `src/resources`.
-3. Run `npm run build` to ensure types build correctly.
-4. Open a PR describing your changes.
-
-When adding schemas, follow the existing pattern: export a Zod schema and an inferred TypeScript type.
+Each schema is exported alongside its inferred type (e.g. `intraUserSchema` and `IntraUser`).
 
 ## Links
 
+- npm: https://www.npmjs.com/package/@42-lyon/42api-zod-schemas
 - Repository: https://github.com/42-Lyon/42API-zod-schemas
 - Issues: https://github.com/42-Lyon/42API-zod-schemas/issues

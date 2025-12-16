@@ -1,5 +1,5 @@
 {
-  "name": "42api-zod-schemas",
+  "name": "@42-lyon/42api-zod-schemas",
   "version": "1.0.0",
   "description": "Zod schemas and TypeScript types for validating and typing 42API response bodies",
   "homepage": "https://github.com/42-Lyon/42API-zod-schemas#readme",
@@ -12,9 +12,9 @@
   },
   "license": "ISC",
   "author": "42Lyon",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
   "scripts": {
     "build": "tsc",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
@@ -34,5 +34,9 @@
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
-  }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
 }
