@@ -1,4 +1,4 @@
-import { intraTransactionSchema } from "../../src/resources/transactions.js";
+import { intraTransactionSchema } from "../../src";
 import { testSchemaWithFixtures } from "../lib/test-schema.js";
 
 testSchemaWithFixtures({
