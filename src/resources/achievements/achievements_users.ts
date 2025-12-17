@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const achievementsUserSchema = z.object({
+export const intraAchievementsUserSchema = z.object({
 	id: z.number(),
 	achievement_id: z.number(),
 	user_id: z.number(),
@@ -11,4 +11,4 @@ export const achievementsUserSchema = z.object({
 	updated_at: z.coerce.date()
 }).strict();
 
-export type IntraAchievementsUser = z.infer<typeof achievementsUserSchema>;
+export type IntraAchievementsUser = z.infer<typeof intraAchievementsUserSchema>;

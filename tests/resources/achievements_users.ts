@@ -1,8 +1,8 @@
-import { achievementsUserSchema } from "../../src/resources/achievements/achievements_users.js";
+import { intraAchievementsUserSchema } from "../../src";
 import { testSchemaWithFixtures } from "../lib/test-schema.js";
 
 testSchemaWithFixtures({
-	schema: achievementsUserSchema,
+	schema: intraAchievementsUserSchema,
 	fixtureName: "achievements_users",
 	resourceName: "achievements_user",
 	getItemLabel: (item) => `id ${item.id}`,
