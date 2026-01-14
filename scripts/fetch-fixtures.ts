@@ -39,10 +39,16 @@ const RESOURCES: ResourceConfig[] = [
 		endpoint: "/v2/campus",
 	},
 	{
+		name: "projects",
+		endpoint: "/v2/projects",
+		maxPage: 50,
+	},
+	{
 		name: "projects_users",
 		endpoint: "/v2/projects_users",
 		maxPage: 50,
-	}
+	},
+
 ];
 
 async function fetchAllFixtures() {
