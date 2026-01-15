@@ -60,13 +60,14 @@ import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
 - experiences
 - flags
 - pool
-- project
+- projects
 - projects_user
-- quest
-- scale
-- scale_team
-- team
+- quests
+- scales
+- scale_teams
+- teams
 - teams_uploads
+- teams_users
 - transactions
 - users
   

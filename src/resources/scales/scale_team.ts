@@ -1,8 +1,8 @@
 import z from "zod";
-import { intraTeamBaseSchema } from "../teams/team.js";
 import { microUser } from "../users/lib/micro.js";
 import { questionWithAnswer } from "../teams/lib/questionsWithAnswers.js";
 import { innerFlag } from "../flags/lib/inner.js";
+import { teamBase } from "../teams/lib/teamBase.js";
 
 export const scaleTeamScaleSchema = z.looseObject({
 	id: z.number(),
@@ -46,7 +46,7 @@ export const scaleTeamSchema = z.looseObject({
 	filled_at: z.coerce.date().nullable(),
 	questions_with_answers: z.array(questionWithAnswer),
 	scale: scaleTeamScaleSchema,
-	team: intraTeamBaseSchema,
+	team: teamBase,
 	feedbacks: z.array(
 		z.looseObject({
 			id: z.number(),
