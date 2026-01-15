@@ -1,30 +1,5 @@
 import { z } from "zod";
-
-const intraProjectCampusSchema = z.looseObject({
-	id: z.number(),
-	name: z.string(),
-	time_zone: z.string(),
-	language: z.looseObject({
-		id: z.number(),
-		name: z.string(),
-		identifier: z.string(),
-		created_at: z.coerce.date(),
-		updated_at: z.coerce.date(),
-	}),
-	users_count: z.number(),
-	vogsphere_id: z.number().nullable(),
-	country: z.string(),
-	address: z.string(),
-	zip: z.string(),
-	city: z.string(),
-	website: z.string(),
-	facebook: z.string(),
-	twitter: z.string(),
-	active: z.boolean(),
-	public: z.boolean(),
-	email_extension: z.string().nullable(),
-	default_hidden_phone: z.boolean(),
-});
+import { intraInnerCampusSchema } from "../campus/inner.js";
 
 const intraProjectSessionSchema = z.looseObject({
 	id: z.number(),
@@ -96,7 +71,7 @@ export const intraProjectSchema = z.looseObject({
 			kind: z.string(),
 		})
 	),
-	campus: z.array(intraProjectCampusSchema),
+	campus: z.array(intraInnerCampusSchema),
 	videos: z.array(z.unknown()),
 	project_sessions: z.array(intraProjectSessionSchema),
 });

@@ -1,6 +1,6 @@
 import { FortytwoIntraClient } from "@ibertran/fortytwo-intra-client";
 import dotenv from "dotenv";
-import { writeFileSync, mkdirSync } from "fs";
+import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -48,7 +48,16 @@ const RESOURCES: ResourceConfig[] = [
 		endpoint: "/v2/projects_users",
 		maxPage: 50,
 	},
-
+	{
+		name: "quests",
+		endpoint: "/v2/quests",
+	},
+	{
+		name: "quests_users",
+		endpoint: "/v2/quests_users",
+		maxPage: 50,
+	},
+	
 ];
 
 async function fetchAllFixtures() {
@@ -65,11 +74,19 @@ async function fetchAllFixtures() {
 	mkdirSync(fixturesDir, { recursive: true });
 
 	for (const resource of RESOURCES) {
+		const outputPath = join(fixturesDir, `${resource.name}.json`);
+		
+		// Skip if fixture already exists
+		if (existsSync(outputPath)) {
+			console.log(`⊘ Skipping ${resource.name} (already loaded)`);
+			console.log(`  File: ${outputPath}\n`);
+			continue;
+		}
+		
 		try {
 			console.log(`Fetching ${resource.name}...`);
 			const data = await ic.getAll(resource.endpoint, resource.maxPage ? { maxPages: resource.maxPage } : {});
 
-			const outputPath = join(fixturesDir, `${resource.name}.json`);
 			writeFileSync(outputPath, JSON.stringify(data, null, 2));
 
 			const count = Array.isArray(data) ? data.length : 1;
