@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const intraInnerCampusSchema = z.looseObject({
+export const innerCampus = z.looseObject({
 	id: z.number(),
 	name: z.string(),
 	time_zone: z.string(),

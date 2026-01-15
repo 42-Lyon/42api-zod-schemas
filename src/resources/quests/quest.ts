@@ -1,5 +1,5 @@
 import z from "zod";
-import { intraInnerCampusSchema } from "../campus/inner.js";
+import { innerCampus } from "../campus/lib/inner.js";
 
 export const intraQuestBaseSchema = z.looseObject({
 	id: z.number(),
@@ -32,14 +32,14 @@ export const intraQuestSchema = intraQuestBaseSchema.extend({
 		position: z.number(),
 		description: z.string(),
 	}).nullable(),
-	cursus: z.object({
+	cursus: z.looseObject({
 		id: z.number(),
 		created_at: z.coerce.date(),
 		name: z.string(),
 		slug: z.string(),
 		kind: z.string(),
 	}),
-	campus: intraInnerCampusSchema.nullable(),
+	campus: innerCampus.nullable(),
 });
 
 export type IntraQuest = z.infer<typeof intraQuestSchema>;

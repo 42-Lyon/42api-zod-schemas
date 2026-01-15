@@ -1,5 +1,5 @@
-import { z } from "zod";
-import { intraInnerCampusSchema } from "../campus/inner.js";
+import z from "zod";
+import { innerCampus } from "../campus/lib/inner.js";
 
 const intraProjectSessionSchema = z.looseObject({
 	id: z.number(),
@@ -71,7 +71,7 @@ export const intraProjectSchema = z.looseObject({
 			kind: z.string(),
 		})
 	),
-	campus: z.array(intraInnerCampusSchema),
+	campus: z.array(innerCampus),
 	videos: z.array(z.unknown()),
 	project_sessions: z.array(intraProjectSessionSchema),
 });

@@ -1,4 +1,4 @@
-import { z } from "zod";
+import z from "zod";
 import { intraUserSchema } from "../users/users.js";
 
 export const intraProjectsUserStatusSchema = z.enum([
@@ -11,7 +11,7 @@ export const intraProjectsUserStatusSchema = z.enum([
 ]);
 
 const intraProjectsUserProjectSchema = z
-	.looseObject({
+	.strictObject({
 		id: z.number(),
 		name: z.string(),
 		slug: z.string(),
@@ -19,7 +19,7 @@ const intraProjectsUserProjectSchema = z
 	});
 
 const intraProjectsUserTeamMemberSchema = z
-	.looseObject({
+	.strictObject({
 		id: z.number(),
 		login: z.string(),
 		url: z.httpUrl(),
@@ -29,31 +29,30 @@ const intraProjectsUserTeamMemberSchema = z
 		projects_user_id: z.number(),
 	});
 
-const intraProjectsUserTeamSchema = z
-	.looseObject({
-		id: z.number(),
-		name: z.string(),
-		url: z.httpUrl(),
-		final_mark: z.number().nullable(),
-		project_id: z.number(),
-		created_at: z.coerce.date(),
-		updated_at: z.coerce.date(),
-		status: intraProjectsUserStatusSchema,
-		terminating_at: z.coerce.date().nullable(),
-		users: z.array(intraProjectsUserTeamMemberSchema),
-		"locked?": z.boolean(),
-		"validated?": z.boolean().nullable(),
-		"closed?": z.boolean(),
-		repo_url: z.string().nullable(),
-		repo_uuid: z.string(),
-		locked_at: z.coerce.date().nullable(),
-		closed_at: z.coerce.date().nullable(),
-		project_session_id: z.number(),
-		project_gitlab_path: z.string().nullable(),
-	});
+const intraProjectsUserTeamSchema = z.looseObject({
+	id: z.number(),
+	name: z.string(),
+	url: z.httpUrl(),
+	final_mark: z.number().nullable(),
+	project_id: z.number(),
+	created_at: z.coerce.date(),
+	updated_at: z.coerce.date(),
+	status: intraProjectsUserStatusSchema,
+	terminating_at: z.coerce.date().nullable(),
+	users: z.array(intraProjectsUserTeamMemberSchema),
+	"locked?": z.boolean(),
+	"validated?": z.boolean().nullable(),
+	"closed?": z.boolean(),
+	repo_url: z.string().nullable(),
+	repo_uuid: z.string(),
+	locked_at: z.coerce.date().nullable(),
+	closed_at: z.coerce.date().nullable(),
+	project_session_id: z.number(),
+	project_gitlab_path: z.string().nullable(),
+});
 
 export const intraProjectsUserSchema = z
-	.looseObject({
+	.strictObject({
 		id: z.number(),
 		occurrence: z.number(),
 		final_mark: z.number().nullable(),

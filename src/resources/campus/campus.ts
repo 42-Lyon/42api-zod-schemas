@@ -1,4 +1,4 @@
-import { z } from "zod";
+import z from "zod";
 
 export const intraCampusSchema = z.looseObject({
 	id: z.number(),

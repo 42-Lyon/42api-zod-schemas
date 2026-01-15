@@ -1,12 +1,12 @@
-import { z } from "zod";
-import { intraInnerCampusSchema } from "../campus/inner.js";
+import z from "zod";
+import { innerCampus } from "../campus/lib/inner.js";
 
 export const intraUserKindSchema = z.enum(["external", "student", "admin"]);
 
 export const intraUserImageSchema = z.looseObject({
 	link: z.string().nullable(),
 	versions: z
-		.looseObject({
+		.strictObject({
 			large: z.string().nullable(),
 			medium: z.string().nullable(),
 			small: z.string().nullable(),
@@ -194,7 +194,7 @@ export const intraFullUserSchema = intraUserSchema.extend({
 	patroning: z.array(intraUserPatronageSchema),
 	expertises_users: z.array(intraUserExpertiseUserSchema),
 	roles: z.array(intraUserRoleSchema),
-	campus: z.array(intraInnerCampusSchema),
+	campus: z.array(innerCampus),
 	campus_users: z.array(intraUserCampusUserSchema),
 });
 

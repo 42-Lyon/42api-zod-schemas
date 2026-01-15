@@ -12,11 +12,13 @@ dotenv.config();
 const CLIENT_ID = process.env.INTRA_CLIENT_ID || "";
 const CLIENT_SECRET = process.env.INTRA_CLIENT_SECRET || "";
 const RATE = Number(process.env.INTRA_CLIENT_REQ_PER_SEC) || 2;
+const SCOPES = ["public", "projects"];
 
 interface ResourceConfig {
 	name: string;
 	endpoint: string;
 	maxPage?: number;
+	perPage?: number;
 }
 
 const RESOURCES: ResourceConfig[] = [
@@ -57,7 +59,31 @@ const RESOURCES: ResourceConfig[] = [
 		endpoint: "/v2/quests_users",
 		maxPage: 50,
 	},
-	
+	{
+		name: "teams",
+		endpoint: "/v2/teams",
+		maxPage: 50,
+	},
+	{
+		name: "teams_users",
+		endpoint: "/v2/teams_users",
+		maxPage: 50,
+	},
+	{
+		name: "teams_uploads",
+		endpoint: "/v2/teams_uploads",
+		maxPage: 50,
+	},
+	{
+		name: "flags",
+		endpoint: "/v2/flags"
+	},
+	{
+		name: "scales",
+		endpoint: "/v2/scales",
+		maxPage: 50,
+		perPage: 30,
+	},
 ];
 
 async function fetchAllFixtures() {
@@ -68,6 +94,7 @@ async function fetchAllFixtures() {
 
 	const ic = new FortytwoIntraClient(CLIENT_ID, CLIENT_SECRET, {
 		rateLimitMaxRequests: RATE,
+		scopes: SCOPES
 	});
 
 	const fixturesDir = join(__dirname, "../tests/resources/fixtures");
@@ -75,17 +102,17 @@ async function fetchAllFixtures() {
 
 	for (const resource of RESOURCES) {
 		const outputPath = join(fixturesDir, `${resource.name}.json`);
-		
+
 		// Skip if fixture already exists
 		if (existsSync(outputPath)) {
 			console.log(`⊘ Skipping ${resource.name} (already loaded)`);
 			console.log(`  File: ${outputPath}\n`);
 			continue;
 		}
-		
+
 		try {
 			console.log(`Fetching ${resource.name}...`);
-			const data = await ic.getAll(resource.endpoint, resource.maxPage ? { maxPages: resource.maxPage } : {});
+			const data = await ic.getAll(resource.endpoint, resource.maxPage ? { maxPages: resource.maxPage, perPage: resource.perPage || 100 } : {});
 
 			writeFileSync(outputPath, JSON.stringify(data, null, 2));
 

@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const intraPoolSchema = z.object({
+export const intraPoolSchema = z.looseObject({
 	id: z.number().positive(),
 	current_points: z.number(),
 	max_points: z.number(),

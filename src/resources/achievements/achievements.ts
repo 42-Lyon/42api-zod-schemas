@@ -3,7 +3,7 @@ import z from "zod";
 const tierSchema = z.enum(['none', 'easy', 'medium', 'hard', 'challenge']);
 const kindSchema = z.enum(['project', 'social', 'pedagogy', 'scolarity']);
 
-export const intraAchievementSchema = z.object({
+export const intraAchievementSchema = z.looseObject({
 	id: z.number(),
 	name: z.string(),
 	description: z.string(),
