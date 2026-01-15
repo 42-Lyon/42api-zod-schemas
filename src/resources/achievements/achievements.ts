@@ -3,7 +3,7 @@ import z from "zod";
 const tierSchema = z.enum(['none', 'easy', 'medium', 'hard', 'challenge']);
 const kindSchema = z.enum(['project', 'social', 'pedagogy', 'scolarity']);
 
-export const intraAchievementSchema = z.object({
+export const intraAchievementSchema = z.looseObject({
 	id: z.number(),
 	name: z.string(),
 	description: z.string(),
@@ -15,7 +15,7 @@ export const intraAchievementSchema = z.object({
 	users_url: z.url(),
 	campus: z.array(z.string()),
 	achievements: z.array(z.string()),
-	parent: z.strictObject({
+	parent: z.looseObject({
 		id: z.number(),
 		name: z.string(),
 		description: z.string(),
@@ -26,7 +26,7 @@ export const intraAchievementSchema = z.object({
 		nbr_of_success: z.number().nullable(),
 		users_url: z.url()
 	}).nullable(),
-	title: z.strictObject({
+	title: z.looseObject({
 		id: z.number(),
 		name: z.string()
 	}).nullable(),

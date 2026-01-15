@@ -1,11 +1,12 @@
-import { z } from "zod";
+import z from "zod";
+import { innerCampus } from "../campus/lib/inner.js";
 
 export const intraUserKindSchema = z.enum(["external", "student", "admin"]);
 
-export const intraUserImageSchema = z.strictObject({
+export const intraUserImageSchema = z.looseObject({
 	link: z.string().nullable(),
 	versions: z
-		.strictObject({
+		.looseObject({
 			large: z.string().nullable(),
 			medium: z.string().nullable(),
 			small: z.string().nullable(),
@@ -13,7 +14,7 @@ export const intraUserImageSchema = z.strictObject({
 		})
 });
 
-export const intraUserSchema = z.strictObject({
+export const intraUserSchema = z.looseObject({
 	id: z.number(),
 	email: z.string(),
 	login: z.string(),
@@ -41,14 +42,14 @@ export const intraUserSchema = z.strictObject({
 	'active?': z.boolean(),
 });
 
-const intraUserCursusUserSchema = z.strictObject({
+const intraUserCursusUserSchema = z.looseObject({
 	id: z.number(),
 	begin_at: z.coerce.date(),
 	end_at: z.coerce.date().nullable(),
 	grade: z.string().nullable(),
 	level: z.number(),
 	skills: z.array(
-		z.strictObject({
+		z.looseObject({
 			id: z.number(),
 			name: z.string(),
 			level: z.number(),
@@ -59,7 +60,7 @@ const intraUserCursusUserSchema = z.strictObject({
 	created_at: z.coerce.date(),
 	updated_at: z.coerce.date(),
 	user: intraUserSchema,
-	cursus: z.strictObject({
+	cursus: z.looseObject({
 		id: z.number(),
 		created_at: z.coerce.date(),
 		name: z.string(),
@@ -68,14 +69,14 @@ const intraUserCursusUserSchema = z.strictObject({
 	}),
 });
 
-const intraUserProjectsUserSchema = z.strictObject({
+const intraUserProjectsUserSchema = z.looseObject({
 	id: z.number(),
 	occurrence: z.number(),
 	final_mark: z.number().nullable(),
 	status: z.string(),
 	'validated?': z.boolean().nullable(),
 	current_team_id: z.number().nullable(),
-	project: z.strictObject({
+	project: z.looseObject({
 		id: z.number(),
 		name: z.string(),
 		slug: z.string(),
@@ -89,7 +90,7 @@ const intraUserProjectsUserSchema = z.strictObject({
 	updated_at: z.coerce.date(),
 });
 
-const intraUserLanguageUserSchema = z.strictObject({
+const intraUserLanguageUserSchema = z.looseObject({
 	id: z.number(),
 	language_id: z.number(),
 	user_id: z.number(),
@@ -97,7 +98,7 @@ const intraUserLanguageUserSchema = z.strictObject({
 	created_at: z.coerce.date(),
 });
 
-const intraUserAchievementSchema = z.strictObject({
+const intraUserAchievementSchema = z.looseObject({
 	id: z.number(),
 	name: z.string(),
 	description: z.string(),
@@ -109,33 +110,7 @@ const intraUserAchievementSchema = z.strictObject({
 	users_url: z.string(),
 });
 
-const intraUserCampusSchema = z.strictObject({
-	id: z.number(),
-	name: z.string(),
-	time_zone: z.string(),
-	language: z.strictObject({
-		id: z.number(),
-		name: z.string(),
-		identifier: z.string(),
-		created_at: z.coerce.date(),
-		updated_at: z.coerce.date(),
-	}),
-	users_count: z.number(),
-	vogsphere_id: z.number(),
-	country: z.string(),
-	address: z.string(),
-	zip: z.string(),
-	city: z.string(),
-	website: z.string().nullable().optional(),
-	facebook: z.string().nullable().optional(),
-	twitter: z.string().nullable().optional(),
-	active: z.boolean(),
-	public: z.boolean(),
-	email_extension: z.string(),
-	default_hidden_phone: z.boolean(),
-});
-
-const intraUserCampusUserSchema = z.strictObject({
+const intraUserCampusUserSchema = z.looseObject({
 	id: z.number(),
 	user_id: z.number(),
 	campus_id: z.number(),
@@ -144,17 +119,17 @@ const intraUserCampusUserSchema = z.strictObject({
 	updated_at: z.coerce.date(),
 });
 
-const intraUserGroupSchema = z.strictObject({
+const intraUserGroupSchema = z.looseObject({
 	id: z.number(),
 	name: z.string(),
 });
 
-const intraUserTitleSchema = z.strictObject({
+const intraUserTitleSchema = z.looseObject({
 	id: z.number(),
 	name: z.string()
 });
 
-const intraUserTitleUserSchema = z.strictObject({
+const intraUserTitleUserSchema = z.looseObject({
 	id: z.number(),
 	user_id: z.number(),
 	title_id: z.number(),
@@ -163,7 +138,7 @@ const intraUserTitleUserSchema = z.strictObject({
 	updated_at: z.coerce.date(),
 });
 
-const intraUserPartnershipSchema = z.strictObject({
+const intraUserPartnershipSchema = z.looseObject({
 	id: z.number(),
 	name: z.string(),
 	slug: z.string(),
@@ -171,7 +146,7 @@ const intraUserPartnershipSchema = z.strictObject({
 	url: z.string(),
 	partnerships_users_url: z.string(),
 	partnerships_skills: z.array(
-		z.strictObject({
+		z.looseObject({
 			id: z.number(),
 			partnership_id: z.number(),
 			skill_id: z.number(),
@@ -182,7 +157,7 @@ const intraUserPartnershipSchema = z.strictObject({
 	),
 });
 
-const intraUserPatronageSchema = z.strictObject({
+const intraUserPatronageSchema = z.looseObject({
 	id: z.number(),
 	user_id: z.number(),
 	godfather_id: z.number(),
@@ -191,7 +166,7 @@ const intraUserPatronageSchema = z.strictObject({
 	updated_at: z.coerce.date(),
 });
 
-const intraUserExpertiseUserSchema = z.strictObject({
+const intraUserExpertiseUserSchema = z.looseObject({
 	id: z.number(),
 	expertise_id: z.number(),
 	interested: z.boolean(),
@@ -201,7 +176,7 @@ const intraUserExpertiseUserSchema = z.strictObject({
 	user_id: z.number()
 });
 
-const intraUserRoleSchema = z.strictObject({
+const intraUserRoleSchema = z.looseObject({
 	id: z.number(),
 	name: z.string(),
 });
@@ -219,7 +194,7 @@ export const intraFullUserSchema = intraUserSchema.extend({
 	patroning: z.array(intraUserPatronageSchema),
 	expertises_users: z.array(intraUserExpertiseUserSchema),
 	roles: z.array(intraUserRoleSchema),
-	campus: z.array(intraUserCampusSchema),
+	campus: z.array(innerCampus),
 	campus_users: z.array(intraUserCampusUserSchema),
 });
 

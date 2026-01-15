@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const intraAchievementsUserSchema = z.strictObject({
+export const intraAchievementsUserSchema = z.looseObject({
 	id: z.number(),
 	achievement_id: z.number(),
 	user_id: z.number(),

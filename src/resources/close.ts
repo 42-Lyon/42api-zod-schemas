@@ -1,4 +1,4 @@
-import { z } from "zod";
+import z from "zod";
 
 // Define valid values as a tuple with `as const`
 const kinds = [

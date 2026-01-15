@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const intraPoolSchema = z.object({
+export const intraPoolSchema = z.looseObject({
 	id: z.number().positive(),
 	current_points: z.number(),
 	max_points: z.number(),
@@ -8,5 +8,4 @@ export const intraPoolSchema = z.object({
 	campus_id: z.number().positive(),
 });
 
-export type intraPool = z.infer<typeof intraPoolSchema>;
-
+export type IntraPool = z.infer<typeof intraPoolSchema>;

@@ -1,6 +1,6 @@
 import { FortytwoIntraClient } from "@ibertran/fortytwo-intra-client";
 import dotenv from "dotenv";
-import { writeFileSync, mkdirSync } from "fs";
+import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -12,11 +12,13 @@ dotenv.config();
 const CLIENT_ID = process.env.INTRA_CLIENT_ID || "";
 const CLIENT_SECRET = process.env.INTRA_CLIENT_SECRET || "";
 const RATE = Number(process.env.INTRA_CLIENT_REQ_PER_SEC) || 2;
+const SCOPES = ["public", "projects"];
 
 interface ResourceConfig {
 	name: string;
 	endpoint: string;
 	maxPage?: number;
+	perPage?: number;
 }
 
 const RESOURCES: ResourceConfig[] = [
@@ -39,9 +41,59 @@ const RESOURCES: ResourceConfig[] = [
 		endpoint: "/v2/campus",
 	},
 	{
+		name: "projects",
+		endpoint: "/v2/projects",
+		maxPage: 50,
+	},
+	{
 		name: "projects_users",
 		endpoint: "/v2/projects_users",
 		maxPage: 50,
+	},
+	{
+		name: "quests",
+		endpoint: "/v2/quests",
+	},
+	{
+		name: "quests_users",
+		endpoint: "/v2/quests_users",
+		maxPage: 50,
+	},
+	{
+		name: "teams",
+		endpoint: "/v2/teams",
+		maxPage: 50,
+	},
+	{
+		name: "teams_users",
+		endpoint: "/v2/teams_users",
+		maxPage: 50,
+	},
+	{
+		name: "teams_uploads",
+		endpoint: "/v2/teams_uploads",
+		maxPage: 50,
+	},
+	{
+		name: "flags",
+		endpoint: "/v2/flags"
+	},
+	{
+		name: "scales",
+		endpoint: "/v2/scales",
+		maxPage: 50,
+		perPage: 30,
+	},
+	{
+		name: "future_scales",
+		endpoint: "scale_teams?filter[future]=true",
+		maxPage: 10,
+		perPage: 30
+	},
+	{
+		name: "teams_in_evaluation",
+		endpoint: "teams?filter[status]=waiting_for_correction",
+		maxPage: 7,
 	}
 ];
 
@@ -53,17 +105,26 @@ async function fetchAllFixtures() {
 
 	const ic = new FortytwoIntraClient(CLIENT_ID, CLIENT_SECRET, {
 		rateLimitMaxRequests: RATE,
+		scopes: SCOPES
 	});
 
 	const fixturesDir = join(__dirname, "../tests/resources/fixtures");
 	mkdirSync(fixturesDir, { recursive: true });
 
 	for (const resource of RESOURCES) {
+		const outputPath = join(fixturesDir, `${resource.name}.json`);
+
+		// Skip if fixture already exists
+		if (existsSync(outputPath)) {
+			console.log(`⊘ Skipping ${resource.name} (already loaded)`);
+			console.log(`  File: ${outputPath}\n`);
+			continue;
+		}
+
 		try {
 			console.log(`Fetching ${resource.name}...`);
-			const data = await ic.getAll(resource.endpoint, resource.maxPage ? { maxPages: resource.maxPage } : {});
+			const data = await ic.getAll(resource.endpoint, resource.maxPage ? { maxPages: resource.maxPage, perPage: resource.perPage || 100 } : {});
 
-			const outputPath = join(fixturesDir, `${resource.name}.json`);
 			writeFileSync(outputPath, JSON.stringify(data, null, 2));
 
 			const count = Array.isArray(data) ? data.length : 1;

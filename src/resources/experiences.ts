@@ -1,10 +1,10 @@
 import z from "zod";
 
-export const intraExperienceSchema = z.object({
+export const intraExperienceSchema = z.looseObject({
 	id: z.number(),
 	cursus_id: z.number(),
-	experiancable: z.object({
-		project: z.object({
+	experiancable: z.looseObject({
+		project: z.looseObject({
 			id: z.number(),
 			slug: z.string(),
 		})

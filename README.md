@@ -47,21 +47,29 @@ Schemas are exported individually so you can import only what you need:
 import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
 ```
 
-## Available schemas
 
-- achievements (`achievements` and `achievements_users`)
+
+## Available Schemas
+
+- achievements
+- achievements_users
 - bloc
 - campus
 - close
 - events
 - experiences
+- flags
 - pool
 - project
+- projects_user
 - quest
+- scale
+- scale_team
 - team
+- teams_uploads
 - transactions
-- user
-
+- users
+  
 Each schema is exported alongside its inferred type (e.g. `intraUserSchema` and `IntraUser`).
 
 ## Links
