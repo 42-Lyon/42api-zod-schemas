@@ -1,8 +1,8 @@
-import { intraTeamsUploadsSchema } from "../../src/resources/teams/teams_uploads.js";
+import { intraTeamsUploadSchema } from "../../src/resources/teams/teams_upload.js";
 import { testSchemaWithFixtures } from "../lib/test-schema.js";
 
 testSchemaWithFixtures({
-	schema: intraTeamsUploadsSchema,
+	schema: intraTeamsUploadSchema,
 	fixtureName: "teams_uploads",
 	resourceName: "teams_uploads",
 	getItemLabel: (item) => `id: ${item.id}`,

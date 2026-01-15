@@ -66,7 +66,7 @@ const RESOURCES: ResourceConfig[] = [
 	},
 	{
 		name: "teams_users",
-		endpoint: "/v2/teams_users",
+		endpoint: "/v2/teams_users?sort=-updated_at",
 		maxPage: 50,
 	},
 	{
@@ -94,7 +94,7 @@ const RESOURCES: ResourceConfig[] = [
 		name: "teams_in_evaluation",
 		endpoint: "teams?filter[status]=waiting_for_correction",
 		maxPage: 7,
-	}
+	},
 ];
 
 async function fetchAllFixtures() {
