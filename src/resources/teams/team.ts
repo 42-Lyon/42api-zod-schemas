@@ -37,22 +37,23 @@ export const intraTeamBaseSchema = z.looseObject({
 });
 
 export const intraTeamSchema = intraTeamBaseSchema.extend({
-	scale_teams: z.array(z.looseObject({
-		id: z.number(),
-		scale_id: z.number(),
-		comment: z.string().nullable(),
-		created_at: z.coerce.date(),
-		updated_at: z.coerce.date(),
-		feedback: z.string().nullable(),
-		final_mark: z.number().nullable(),
-		flag: innerFlag,
-		begin_at: z.coerce.date(),
-		correcteds: z.array(microUser),
-		corrector: microUser.partial(),
-		truant: microUser.partial(),
-		filled_at: z.coerce.date(),
-		questions_with_answers: z.array(questionWithAnswer)
-	})),
+	scale_teams: z.array(
+		z.looseObject({
+			id: z.number(),
+			scale_id: z.number(),
+			comment: z.string().nullable(),
+			created_at: z.coerce.date(),
+			updated_at: z.coerce.date(),
+			feedback: z.string().nullable(),
+			final_mark: z.number().nullable(),
+			flag: innerFlag.nullable(),
+			begin_at: z.coerce.date(),
+			correcteds: z.array(microUser),
+			corrector: microUser.partial(),
+			truant: microUser.partial(),
+			filled_at: z.coerce.date(),
+			questions_with_answers: z.array(questionWithAnswer)
+		})),
 	teams_uploads: z.array(intraTeamsUploadsBaseSchema),
 });
 

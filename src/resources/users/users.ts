@@ -6,7 +6,7 @@ export const intraUserKindSchema = z.enum(["external", "student", "admin"]);
 export const intraUserImageSchema = z.looseObject({
 	link: z.string().nullable(),
 	versions: z
-		.strictObject({
+		.looseObject({
 			large: z.string().nullable(),
 			medium: z.string().nullable(),
 			small: z.string().nullable(),

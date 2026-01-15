@@ -11,7 +11,7 @@ export const intraProjectsUserStatusSchema = z.enum([
 ]);
 
 const intraProjectsUserProjectSchema = z
-	.strictObject({
+	.looseObject({
 		id: z.number(),
 		name: z.string(),
 		slug: z.string(),
@@ -19,7 +19,7 @@ const intraProjectsUserProjectSchema = z
 	});
 
 const intraProjectsUserTeamMemberSchema = z
-	.strictObject({
+	.looseObject({
 		id: z.number(),
 		login: z.string(),
 		url: z.httpUrl(),
@@ -52,7 +52,7 @@ const intraProjectsUserTeamSchema = z.looseObject({
 });
 
 export const intraProjectsUserSchema = z
-	.strictObject({
+	.looseObject({
 		id: z.number(),
 		occurrence: z.number(),
 		final_mark: z.number().nullable(),
