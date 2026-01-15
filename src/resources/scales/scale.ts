@@ -54,3 +54,5 @@ export const intraScaleSchema = z.looseObject({
 		kind: z.string(),
 	}).nullable(),
 });
+
+export type IntraScale = z.infer<typeof intraScaleSchema>;

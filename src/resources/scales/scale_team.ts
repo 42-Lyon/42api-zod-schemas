@@ -1,10 +1,10 @@
 import z from "zod";
-import { intraTeamBaseSchema } from "./team.js";
+import { intraTeamBaseSchema } from "../teams/team.js";
 import { microUser } from "../users/lib/micro.js";
-import { questionWithAnswer } from "./lib/questionsWithAnswers.js";
+import { questionWithAnswer } from "../teams/lib/questionsWithAnswers.js";
 import { innerFlag } from "../flags/lib/inner.js";
 
-const scaleTeamScaleSchema = z.looseObject({
+export const scaleTeamScaleSchema = z.looseObject({
 	id: z.number(),
 	evaluation_id: z.number(),
 	name: z.string(),
@@ -39,11 +39,11 @@ export const scaleTeamSchema = z.looseObject({
 	feedback: z.string().nullable(),
 	final_mark: z.number().nullable(),
 	flag: innerFlag.nullable(),
-	begin_at: z.string().nullable(),
+	begin_at: z.coerce.date().nullable(),
 	correcteds: z.array(microUser),
 	corrector: microUser.partial(),
 	truant: microUser.partial(),
-	filled_at: z.string().nullable(),
+	filled_at: z.coerce.date().nullable(),
 	questions_with_answers: z.array(questionWithAnswer),
 	scale: scaleTeamScaleSchema,
 	team: intraTeamBaseSchema,
@@ -64,5 +64,4 @@ export const scaleTeamSchema = z.looseObject({
 	),
 });
 
-export default scaleTeamSchema;
 export type ScaleTeam = z.infer<typeof scaleTeamSchema>;

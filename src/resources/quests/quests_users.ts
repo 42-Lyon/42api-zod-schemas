@@ -9,7 +9,7 @@ export const intraQuestsUserSchema = z.looseObject({
 	validated_at: z.coerce.date().nullable(),
 	prct: z.number().nullable(),
 	advancement: z.string().nullable(),
-	created_at: z.coerce.date(), 
+	created_at: z.coerce.date(),
 	updated_at: z.coerce.date(),
 	user: intraUserSchema,
 	quest: intraQuestBaseSchema,

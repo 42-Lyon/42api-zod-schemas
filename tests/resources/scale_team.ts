@@ -1,4 +1,4 @@
-import { scaleTeamSchema } from "../../src/resources/teams/scale_team.js";
+import { scaleTeamSchema } from "../../src/resources/scales/scale_team.js";
 import { testSchemaWithFixtures } from "../lib/test-schema.js";
 
 testSchemaWithFixtures({

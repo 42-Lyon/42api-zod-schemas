@@ -13,4 +13,4 @@ export const intraBlocSchema = z.looseObject({
 		}))
 });
 
-export type intraBloc = z.infer<typeof intraBlocSchema>;
+export type IntraBloc = z.infer<typeof intraBlocSchema>;

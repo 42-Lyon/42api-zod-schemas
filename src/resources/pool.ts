@@ -8,5 +8,4 @@ export const intraPoolSchema = z.looseObject({
 	campus_id: z.number().positive(),
 });
 
-export type intraPool = z.infer<typeof intraPoolSchema>;
-
+export type IntraPool = z.infer<typeof intraPoolSchema>;
