@@ -46,7 +46,7 @@ export const intraTeamSchema = intraTeamBaseSchema.extend({
 			updated_at: z.coerce.date(),
 			feedback: z.string().nullable(),
 			final_mark: z.number().nullable(),
-			flag: innerFlag.nullable(),
+			flag: innerFlag,
 			begin_at: z.coerce.date(),
 			correcteds: z.array(microUser),
 			corrector: microUser.partial(),

@@ -7,3 +7,10 @@ testSchemaWithFixtures({
 	resourceName: "team",
 	getItemLabel: (item) => `"${item.name}" (id: ${item.id})`,
 });
+
+testSchemaWithFixtures({
+	schema: intraTeamSchema,
+	fixtureName: "teams_in_evaluation",
+	resourceName: "team",
+	getItemLabel: (item) => `"${item.name}" (id: ${item.id})`,
+})

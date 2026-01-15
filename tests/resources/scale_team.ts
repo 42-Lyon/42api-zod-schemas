@@ -7,3 +7,10 @@ testSchemaWithFixtures({
   resourceName: "scale_team",
   getItemLabel: (item) => `id: ${item.id}`,
 });
+
+testSchemaWithFixtures({
+  schema: scaleTeamSchema,
+  fixtureName: "future_scales",
+  resourceName: "scale_team",
+  getItemLabel: (item) => `id: ${item.id}`,
+});

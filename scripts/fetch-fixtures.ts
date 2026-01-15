@@ -84,6 +84,17 @@ const RESOURCES: ResourceConfig[] = [
 		maxPage: 50,
 		perPage: 30,
 	},
+	{
+		name: "future_scales",
+		endpoint: "scale_teams?filter[future]=true",
+		maxPage: 10,
+		perPage: 30
+	},
+	{
+		name: "teams_in_evaluation",
+		endpoint: "teams?filter[status]=waiting_for_correction",
+		maxPage: 7,
+	}
 ];
 
 async function fetchAllFixtures() {

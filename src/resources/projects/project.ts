@@ -4,7 +4,7 @@ import { innerCampus } from "../campus/lib/inner.js";
 const intraProjectSessionSchema = z.looseObject({
 	id: z.number(),
 	solo: z.boolean().nullable(),
-	begin_at: z.coerce.date().nullable(),
+	begin_at: z.coerce.date(),
 	end_at: z.coerce.date().nullable(),
 	estimate_time: z.string().nullable(),
 	difficulty: z.number().nullable(),
