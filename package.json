@@ -1,6 +1,6 @@
 {
   "name": "@42-lyon/42api-zod-schemas",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Zod schemas and TypeScript types for validating and typing 42API response bodies",
   "homepage": "https://github.com/42-Lyon/42API-zod-schemas#readme",
   "bugs": {
@@ -17,6 +17,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "prepublishOnly": "rm -rf dist && npm run build",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
     "fetch-fixtures": "node --loader ts-node/esm scripts/fetch-fixtures.ts"
