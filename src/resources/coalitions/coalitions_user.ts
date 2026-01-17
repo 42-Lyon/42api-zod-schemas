@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const intraCoalitionsUser = z.looseObject({
+export const intraCoalitionsUserSchema = z.looseObject({
 	id: z.number(),
 	coalition_id: z.number(),
 	user_id: z.number(),
@@ -10,4 +10,4 @@ export const intraCoalitionsUser = z.looseObject({
 	updated_at: z.coerce.date(),
 });
 
-export type IntraCoalitionsUser = z.infer<typeof intraCoalitionsUser>;
+export type IntraCoalitionsUser = z.infer<typeof intraCoalitionsUserSchema>;

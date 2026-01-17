@@ -1,5 +1,5 @@
 import { testSchemaWithFixtures } from "../lib/test-schema.js";
-import { intraBlocSchema, intraCoalitionSchema, intraCoalitionsUser, intraScoreSchema } from "../../src/index.js";
+import { intraBlocSchema, intraCoalitionSchema, intraCoalitionsUserSchema, intraScoreSchema } from "../../src/index.js";
 
 testSchemaWithFixtures({
 	schema: intraCoalitionSchema,
@@ -11,20 +11,20 @@ testSchemaWithFixtures({
 testSchemaWithFixtures({
 	schema: intraBlocSchema,
 	fixtureName: "blocs",
-	resourceName: "blocs",
+	resourceName: "bloc",
 	getItemLabel: (item) => `id ${item.id}`,
 });
 
 testSchemaWithFixtures({
-	schema: intraCoalitionsUser,
+	schema: intraCoalitionsUserSchema,
 	fixtureName: "coalitions_users",
-	resourceName: "coalitions_users",
+	resourceName: "coalitions_user",
 	getItemLabel: (item) => `id ${item.id}`,
 });
 
 testSchemaWithFixtures({
 	schema: intraScoreSchema,
 	fixtureName: "scores",
-	resourceName: "scores",
+	resourceName: "score",
 	getItemLabel: (item) => `id ${item.id}`,
 });
