@@ -2,7 +2,7 @@ export * from './resources/achievements/achievements_users.js';
 export * from './resources/achievements/achievements.js';
 export * from './resources/campus/campus.js';
 export * from './resources/close.js';
-export * from './resources/coalitions/blocs.js';
+export * from './resources/coalitions/bloc.js';
 export * from './resources/coalitions/coalition.js';
 export * from './resources/coalitions/coalitions_user.js';
 export * from './resources/coalitions/score.js';
