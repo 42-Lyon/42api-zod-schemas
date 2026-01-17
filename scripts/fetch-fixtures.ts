@@ -95,6 +95,24 @@ const RESOURCES: ResourceConfig[] = [
 		endpoint: "teams?filter[status]=waiting_for_correction",
 		maxPage: 7,
 	},
+	{
+		name: "blocs",
+		endpoint: "/v2/blocs",
+	},
+	{
+		name: "coalitions",
+		endpoint: "/v2/coalitions",
+	},
+	{
+		name: "coalitions_users",
+		endpoint: "/v2/coalitions_users",
+		maxPage: 50,
+	},
+	{
+		name: "scores",
+		endpoint: "/v2/scores?sort=-updated_at",
+		maxPage: 50,
+	}
 ];
 
 async function fetchAllFixtures() {

@@ -53,9 +53,11 @@ import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
 
 - achievements
 - achievements_users
-- bloc
+- blocs
 - campus
 - close
+- coalitions
+- coalitions_users
 - events
 - experiences
 - flags
@@ -65,6 +67,7 @@ import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
 - quests
 - scales
 - scale_teams
+- scores
 - teams
 - teams_uploads
 - teams_users
