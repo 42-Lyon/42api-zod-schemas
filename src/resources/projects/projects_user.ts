@@ -8,6 +8,7 @@ export const intraProjectsUserStatusSchema = z.enum([
 	"parent",
 	"searching_a_group",
 	"waiting_for_correction",
+	"waiting_to_start",
 ]);
 
 const intraProjectsUserProjectSchema = z
