@@ -109,6 +109,10 @@ const RESOURCES: ResourceConfig[] = [
 		maxPage: 50,
 	},
 	{
+		name: "cursus_users",
+		endpoint: "/v2/cursus_users?filter[campus_id]=9"
+	},
+	{
 		name: "scores",
 		endpoint: "/v2/scores?sort=-updated_at",
 		maxPage: 50,
