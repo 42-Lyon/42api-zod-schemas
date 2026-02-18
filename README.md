@@ -58,6 +58,7 @@ import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
 - close
 - coalitions
 - coalitions_users
+- cursus_users
 - events
 - experiences
 - flags

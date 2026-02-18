@@ -6,6 +6,8 @@ export * from './resources/coalitions/bloc.js';
 export * from './resources/coalitions/coalition.js';
 export * from './resources/coalitions/coalitions_user.js';
 export * from './resources/coalitions/score.js';
+export * from './resources/cursus/cursus_user.js';
+export * from './resources/cursus/enums/kind.js';
 export * from './resources/events.js';
 export * from './resources/experiences.js';
 export * from './resources/flags/flag.js';
