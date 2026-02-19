@@ -1,5 +1,6 @@
 import z from "zod";
 import { innerCampus } from "../campus/lib/inner.js";
+import { intraCursusKindSchema } from "../cursus/enums/kind.js";
 
 export const intraUserKindSchema = z.enum(["external", "student", "admin"]);
 
@@ -65,7 +66,7 @@ const intraUserCursusUserSchema = z.looseObject({
 		created_at: z.coerce.date(),
 		name: z.string(),
 		slug: z.string(),
-		kind: z.string(),
+		kind: intraCursusKindSchema,
 	}),
 });
 

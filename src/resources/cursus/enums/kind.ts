@@ -1,15 +1,17 @@
 import z from "zod";
 
-export const IntraCursusKind = {
-	External: "external",
-	Main: "main",
-	MainDeprecated: "main_deprecated",
-	Piscine: "piscine",
-	PiscineCommunity: "piscine_community",
-	PiscineDeprecated: "piscine_deprecated",
-	ProfessionalTraining: "professional_training",
-} as const;
+const kinds = [
+	"external",
+	"main",
+	"main_deprecated",
+	"piscine",
+	"piscine_community",
+	"piscine_deprecated",
+	"professional_training",
+] as const;
 
-export const intraCursusKindSchema = z.enum(IntraCursusKind);
+export const intraCursusKindSchema = z.enum(kinds);
+
+export const IntraCursusKind = intraCursusKindSchema.enum;
 
 export type IntraCursusKind = z.infer<typeof intraCursusKindSchema>;
