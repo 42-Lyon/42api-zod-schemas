@@ -12,6 +12,6 @@ const kinds = [
 
 export const intraCursusKindSchema = z.enum(kinds);
 
-export const IntraCursusKinds = intraCursusKindSchema.enum;
+export const IntraCursusKind = intraCursusKindSchema.enum;
 
 export type IntraCursusKind = z.infer<typeof intraCursusKindSchema>;
