@@ -9,7 +9,7 @@ const kinds = [
 	"serious_misconduct",
 	"social_security",
 	"non_admitted",
-	"pace_unknown"
+	"pace_unknown",
 ] as const;
 
 // Create the Zod enum schema

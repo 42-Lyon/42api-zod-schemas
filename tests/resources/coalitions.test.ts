@@ -1,5 +1,10 @@
 import { testSchemaWithFixtures } from "../lib/test-schema.js";
-import { intraBlocSchema, intraCoalitionSchema, intraCoalitionsUserSchema, intraScoreSchema } from "../../src/index.js";
+import {
+	intraBlocSchema,
+	intraCoalitionSchema,
+	intraCoalitionsUserSchema,
+	intraScoreSchema,
+} from "../../src/index.js";
 
 testSchemaWithFixtures({
 	schema: intraCoalitionSchema,

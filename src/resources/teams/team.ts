@@ -21,8 +21,9 @@ export const intraTeamSchema = teamBase.extend({
 			corrector: microUser.partial(),
 			truant: microUser.partial(),
 			filled_at: z.coerce.date(),
-			questions_with_answers: z.array(questionWithAnswer)
-		})),
+			questions_with_answers: z.array(questionWithAnswer),
+		}),
+	),
 	teams_uploads: z.array(teamUploadBase),
 });
 

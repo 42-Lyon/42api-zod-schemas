@@ -24,13 +24,13 @@ const intraProjectSessionSchema = z.looseObject({
 			id: z.number(),
 			correction_number: z.number(),
 			is_primary: z.boolean(),
-		})
+		}),
 	),
 	uploads: z.array(
 		z.looseObject({
 			id: z.number(),
 			name: z.string(),
-		})
+		}),
 	),
 	team_behaviour: z.string(),
 	commit: z.string().nullable(),
@@ -42,19 +42,21 @@ export const intraProjectSchema = z.looseObject({
 	name: z.string(),
 	slug: z.string(),
 	difficulty: z.number().nullable(),
-	parent: z.looseObject({
-		id: z.number(),
-		name: z.string(),
-		slug: z.string(),
-		url: z.httpUrl(),
-	}).nullable(),
+	parent: z
+		.looseObject({
+			id: z.number(),
+			name: z.string(),
+			slug: z.string(),
+			url: z.httpUrl(),
+		})
+		.nullable(),
 	children: z.array(
 		z.looseObject({
 			id: z.number(),
 			name: z.string(),
 			slug: z.string(),
 			url: z.httpUrl(),
-		})
+		}),
 	),
 	attachments: z.array(z.unknown()),
 	created_at: z.coerce.date(),
@@ -69,7 +71,7 @@ export const intraProjectSchema = z.looseObject({
 			name: z.string(),
 			slug: z.string(),
 			kind: z.string(),
-		})
+		}),
 	),
 	campus: z.array(innerCampus),
 	videos: z.array(z.unknown()),

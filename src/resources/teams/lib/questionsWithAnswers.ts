@@ -12,6 +12,6 @@ export const questionWithAnswer = z.looseObject({
 			id: z.number(),
 			value: z.number().nullable(),
 			answer: z.string().nullable(),
-		})
+		}),
 	),
 });

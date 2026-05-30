@@ -29,12 +29,12 @@ const RESOURCES: ResourceConfig[] = [
 	{
 		name: "achievements_users",
 		endpoint: "/v2/achievements_users",
-		maxPage: 10
+		maxPage: 10,
 	},
 	{
 		name: "transactions",
 		endpoint: "/v2/transactions",
-		maxPage: 50
+		maxPage: 50,
 	},
 	{
 		name: "campuses",
@@ -76,7 +76,7 @@ const RESOURCES: ResourceConfig[] = [
 	},
 	{
 		name: "flags",
-		endpoint: "/v2/flags"
+		endpoint: "/v2/flags",
 	},
 	{
 		name: "scales",
@@ -88,7 +88,7 @@ const RESOURCES: ResourceConfig[] = [
 		name: "future_scales",
 		endpoint: "scale_teams?filter[future]=true",
 		maxPage: 10,
-		perPage: 30
+		perPage: 30,
 	},
 	{
 		name: "teams_in_evaluation",
@@ -110,7 +110,7 @@ const RESOURCES: ResourceConfig[] = [
 	},
 	{
 		name: "cursus_users",
-		endpoint: "/v2/cursus_users?filter[campus_id]=9"
+		endpoint: "/v2/cursus_users?filter[campus_id]=9",
 	},
 	{
 		name: "scores",
@@ -124,7 +124,7 @@ const RESOURCES: ResourceConfig[] = [
 	{
 		name: "amendments",
 		endpoint: "/v2/amendments",
-	}
+	},
 ];
 
 async function fetchAllFixtures() {
@@ -135,7 +135,7 @@ async function fetchAllFixtures() {
 
 	const ic = new FortytwoIntraClient(CLIENT_ID, CLIENT_SECRET, {
 		rateLimitMaxRequests: RATE,
-		scopes: SCOPES
+		scopes: SCOPES,
 	});
 
 	const fixturesDir = join(__dirname, "../tests/resources/fixtures");
@@ -153,7 +153,10 @@ async function fetchAllFixtures() {
 
 		try {
 			console.log(`Fetching ${resource.name}...`);
-			const data = await ic.getAll(resource.endpoint, resource.maxPage ? { maxPages: resource.maxPage, perPage: resource.perPage || 100 } : {});
+			const data = await ic.getAll(
+				resource.endpoint,
+				resource.maxPage ? { maxPages: resource.maxPage, perPage: resource.perPage || 100 } : {},
+			);
 
 			writeFileSync(outputPath, JSON.stringify(data, null, 2));
 

@@ -19,7 +19,7 @@ export const teamBase = z.looseObject({
 			occurrence: z.number(),
 			validated: z.boolean(),
 			projects_user_id: z.number().nullable(),
-		})
+		}),
 	),
 	"locked?": z.boolean().nullable(),
 	"validated?": z.boolean().nullable(),

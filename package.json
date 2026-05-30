@@ -1,46 +1,46 @@
 {
-  "name": "@42-lyon/42api-zod-schemas",
-  "version": "1.5.1",
-  "description": "Zod schemas and TypeScript types for validating and typing 42API response bodies",
-  "homepage": "https://github.com/42-Lyon/42API-zod-schemas#readme",
-  "bugs": {
-    "url": "https://github.com/42-Lyon/42API-zod-schemas/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/42-Lyon/42API-zod-schemas.git"
-  },
-  "license": "ISC",
-  "author": "42Lyon",
-  "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc",
-    "prepublishOnly": "rm -rf dist && npm run build",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
-    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
-    "fetch-fixtures": "node --loader ts-node/esm scripts/fetch-fixtures.ts",
-    "format": "prettier --write .",
-    "prettier": "prettier --check ."
-  },
-  "dependencies": {
-    "zod": "^4.1.12"
-  },
-  "devDependencies": {
-    "@ibertran/fortytwo-intra-client": "^3.1.4",
-    "@jest/globals": "^30.2.0",
-    "@types/jest": "^30.0.0",
-    "@types/node": "^25.0.1",
-    "dotenv": "^17.2.3",
-    "jest": "^30.2.0",
-    "prettier": "^3.8.3",
-    "ts-jest": "^29.4.6",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ]
+	"name": "@42-lyon/42api-zod-schemas",
+	"version": "1.5.1",
+	"description": "Zod schemas and TypeScript types for validating and typing 42API response bodies",
+	"homepage": "https://github.com/42-Lyon/42API-zod-schemas#readme",
+	"bugs": {
+		"url": "https://github.com/42-Lyon/42API-zod-schemas/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/42-Lyon/42API-zod-schemas.git"
+	},
+	"license": "ISC",
+	"author": "42Lyon",
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"prepublishOnly": "rm -rf dist && npm run build",
+		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
+		"test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
+		"fetch-fixtures": "node --loader ts-node/esm scripts/fetch-fixtures.ts",
+		"format": "prettier --write .",
+		"prettier": "prettier --check ."
+	},
+	"dependencies": {
+		"zod": "^4.1.12"
+	},
+	"devDependencies": {
+		"@ibertran/fortytwo-intra-client": "^3.1.4",
+		"@jest/globals": "^30.2.0",
+		"@types/jest": "^30.0.0",
+		"@types/node": "^25.0.1",
+		"dotenv": "^17.2.3",
+		"jest": "^30.2.0",
+		"prettier": "^3.8.3",
+		"ts-jest": "^29.4.6",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.9.3"
+	},
+	"files": [
+		"dist",
+		"README.md"
+	]
 }
