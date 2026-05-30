@@ -13,4 +13,4 @@ testSchemaWithFixtures({
 	fixtureName: "teams_in_evaluation",
 	resourceName: "team",
 	getItemLabel: (item) => `"${item.name}" (id: ${item.id})`,
-})
+});

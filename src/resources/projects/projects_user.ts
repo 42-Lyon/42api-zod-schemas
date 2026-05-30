@@ -11,24 +11,22 @@ export const intraProjectsUserStatusSchema = z.enum([
 	"waiting_to_start",
 ]);
 
-const intraProjectsUserProjectSchema = z
-	.looseObject({
-		id: z.number(),
-		name: z.string(),
-		slug: z.string(),
-		parent_id: z.number().nullable(),
-	});
+const intraProjectsUserProjectSchema = z.looseObject({
+	id: z.number(),
+	name: z.string(),
+	slug: z.string(),
+	parent_id: z.number().nullable(),
+});
 
-const intraProjectsUserTeamMemberSchema = z
-	.looseObject({
-		id: z.number(),
-		login: z.string(),
-		url: z.httpUrl(),
-		leader: z.boolean(),
-		occurrence: z.number(),
-		validated: z.boolean(),
-		projects_user_id: z.number(),
-	});
+const intraProjectsUserTeamMemberSchema = z.looseObject({
+	id: z.number(),
+	login: z.string(),
+	url: z.httpUrl(),
+	leader: z.boolean(),
+	occurrence: z.number(),
+	validated: z.boolean(),
+	projects_user_id: z.number(),
+});
 
 const intraProjectsUserTeamSchema = z.looseObject({
 	id: z.number(),
@@ -52,23 +50,22 @@ const intraProjectsUserTeamSchema = z.looseObject({
 	project_gitlab_path: z.string().nullable(),
 });
 
-export const intraProjectsUserSchema = z
-	.looseObject({
-		id: z.number(),
-		occurrence: z.number(),
-		final_mark: z.number().nullable(),
-		status: intraProjectsUserStatusSchema,
-		"validated?": z.boolean().nullable(),
-		current_team_id: z.number().nullable(),
-		project: intraProjectsUserProjectSchema,
-		cursus_ids: z.array(z.number()),
-		user: intraUserSchema,
-		teams: z.array(intraProjectsUserTeamSchema),
-		marked_at: z.coerce.date().nullable(),
-		marked: z.boolean(),
-		retriable_at: z.coerce.date().nullable(),
-		created_at: z.coerce.date(),
-		updated_at: z.coerce.date(),
-	});
+export const intraProjectsUserSchema = z.looseObject({
+	id: z.number(),
+	occurrence: z.number(),
+	final_mark: z.number().nullable(),
+	status: intraProjectsUserStatusSchema,
+	"validated?": z.boolean().nullable(),
+	current_team_id: z.number().nullable(),
+	project: intraProjectsUserProjectSchema,
+	cursus_ids: z.array(z.number()),
+	user: intraUserSchema,
+	teams: z.array(intraProjectsUserTeamSchema),
+	marked_at: z.coerce.date().nullable(),
+	marked: z.boolean(),
+	retriable_at: z.coerce.date().nullable(),
+	created_at: z.coerce.date(),
+	updated_at: z.coerce.date(),
+});
 
 export type IntraProjectsUser = z.infer<typeof intraProjectsUserSchema>;

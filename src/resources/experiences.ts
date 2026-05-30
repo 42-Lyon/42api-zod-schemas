@@ -7,8 +7,8 @@ export const intraExperienceSchema = z.looseObject({
 		project: z.looseObject({
 			id: z.number(),
 			slug: z.string(),
-		})
-	})
+		}),
+	}),
 });
 
 export type IntraExperience = z.infer<typeof intraExperienceSchema>;

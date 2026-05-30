@@ -31,7 +31,7 @@ async function main() {
 
 	const ic = new FortytwoIntraClient(CLIENT_ID, CLIENT_SECRET, {
 		rateLimitMaxRequests: RATE,
-		scopes: SCOPES
+		scopes: SCOPES,
 	});
 
 	const fixturesDir = join(__dirname, "../tests/resources/fixtures");

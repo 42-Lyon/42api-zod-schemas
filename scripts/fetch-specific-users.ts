@@ -23,13 +23,17 @@ interface SpecificResourceConfig {
 const SPECIFIC_RESOURCES: SpecificResourceConfig[] = [
 	// Example: fetch detailed users
 	// { name: "users", singleItemEndpointPrefix: "/v2/users", ids: [1234, 5678] },
-	{ name: "user", singleItemEndpointPrefix: "/v2/users/", ids: ["chmaubla", "ibertran", "cameo", "cdomet-d", "ohrete", "adegas", "nguez"] }
+	{
+		name: "user",
+		singleItemEndpointPrefix: "/v2/users/",
+		ids: ["chmaubla", "ibertran", "cameo", "cdomet-d", "ohrete", "adegas", "nguez"],
+	},
 ];
 
 async function fetchItemsById(
 	ic: FortytwoIntraClient,
 	resource: SpecificResourceConfig,
-	fixturesDir: string
+	fixturesDir: string,
 ) {
 	const ids = resource.ids || [];
 	const prefix = resource.singleItemEndpointPrefix;
@@ -64,7 +68,9 @@ async function fetchSpecificFixtures() {
 	mkdirSync(fixturesDir, { recursive: true });
 
 	if (!SPECIFIC_RESOURCES.length) {
-		console.warn("No specific resources configured. Edit SPECIFIC_RESOURCES in scripts/fetch-specific-users.ts");
+		console.warn(
+			"No specific resources configured. Edit SPECIFIC_RESOURCES in scripts/fetch-specific-users.ts",
+		);
 	}
 
 	for (const resource of SPECIFIC_RESOURCES) {

@@ -10,7 +10,6 @@ This package centralises Zod schemas for common 42 API resources so downstream p
 
 ## Installation
 
-
 ```bash
 npm install @42-lyon/42api-zod-schemas
 # or
@@ -24,9 +23,9 @@ The package is ESM-only and ships bundled `.d.ts` definitions.
 ## Quick start
 
 ```ts
-import { intraUserSchema, type IntraUser } from '@42-lyon/42api-zod-schemas';
+import { intraUserSchema, type IntraUser } from "@42-lyon/42api-zod-schemas";
 
-const response = await fetch('https://api.intra.42.fr/v2/users/cameo');
+const response = await fetch("https://api.intra.42.fr/v2/users/cameo");
 const payload = await response.json();
 
 // Throws on invalid payload
@@ -44,15 +43,14 @@ if (!result.success) {
 Schemas are exported individually so you can import only what you need:
 
 ```ts
-import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
+import { projectSchema } from "@42-lyon/42api-zod-schemas/project";
 ```
-
-
 
 ## Available Schemas
 
 - achievements
 - achievements_users
+- amendments
 - blocs
 - campus
 - close
@@ -62,19 +60,20 @@ import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
 - events
 - experiences
 - flags
+- internships
 - pool
 - projects
 - projects_user
 - quests
-- scales
 - scale_teams
+- scales
 - scores
 - teams
 - teams_uploads
 - teams_users
 - transactions
 - users
-  
+
 Each schema is exported alongside its inferred type (e.g. `intraUserSchema` and `IntraUser`).
 
 ## Links

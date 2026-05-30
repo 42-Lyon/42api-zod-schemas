@@ -21,38 +21,45 @@ export const intraScaleSchema = z.looseObject({
 			identifier: z.string(),
 			created_at: z.coerce.date(),
 			updated_at: z.coerce.date(),
-		})
+		}),
 	),
 	flags: z.array(innerFlag),
 	free: z.boolean().nullable(),
-	sections: z.array(z.looseObject({
-		id: z.number(),
-		name: z.string(),
-		description: z.string(),
-		questions: z.array(z.looseObject({
+	sections: z.array(
+		z.looseObject({
 			id: z.number(),
 			name: z.string(),
-			guidelines: z.string(),
-			rating: z.string(),
-			kind: z.string(),
-			questions_skills: z.array(
+			description: z.string(),
+			questions: z.array(
 				z.looseObject({
 					id: z.number(),
-					question_id: z.number(),
-					skill_id: z.number(),
-					percentage: z.number(),
+					name: z.string(),
+					guidelines: z.string(),
+					rating: z.string(),
+					kind: z.string(),
+					questions_skills: z.array(
+						z.looseObject({
+							id: z.number(),
+							question_id: z.number(),
+							skill_id: z.number(),
+							percentage: z.number(),
+							created_at: z.coerce.date(),
+							updated_at: z.coerce.date(),
+						}),
+					),
+					position: z.number().nullable(),
 					created_at: z.coerce.date(),
 					updated_at: z.coerce.date(),
-				})),
-			position: z.number().nullable(),
-			created_at: z.coerce.date(),
-			updated_at: z.coerce.date(),
-		})),
-	})),
-	evaluation: z.looseObject({
-		id: z.number(),
-		kind: z.string(),
-	}).nullable(),
+				}),
+			),
+		}),
+	),
+	evaluation: z
+		.looseObject({
+			id: z.number(),
+			kind: z.string(),
+		})
+		.nullable(),
 });
 
 export type IntraScale = z.infer<typeof intraScaleSchema>;

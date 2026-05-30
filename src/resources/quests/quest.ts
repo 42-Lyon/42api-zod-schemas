@@ -22,16 +22,18 @@ export const intraQuestBaseSchema = z.looseObject({
 });
 
 export const intraQuestSchema = intraQuestBaseSchema.extend({
-	grade: z.looseObject({
-		id: z.number(),
-		name: z.string(),
-		created_at: z.coerce.date(),
-		updated_at: z.coerce.date(),
-		cursus_id: z.number(),
-		is_primary: z.boolean().nullable(),
-		position: z.number(),
-		description: z.string(),
-	}).nullable(),
+	grade: z
+		.looseObject({
+			id: z.number(),
+			name: z.string(),
+			created_at: z.coerce.date(),
+			updated_at: z.coerce.date(),
+			cursus_id: z.number(),
+			is_primary: z.boolean().nullable(),
+			position: z.number(),
+			description: z.string(),
+		})
+		.nullable(),
 	cursus: z.looseObject({
 		id: z.number(),
 		created_at: z.coerce.date(),

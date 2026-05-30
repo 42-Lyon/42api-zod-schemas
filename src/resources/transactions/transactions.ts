@@ -10,22 +10,26 @@ export const intraTransactionSchema = z.looseObject({
 	user: z.looseObject({
 		id: z.number(),
 		login: z.string(),
-		url: z.string()
+		url: z.string(),
 	}),
-	options: z.array(z.looseObject({
-		id: z.number(),
-		name: z.string(),
-		created_at: z.coerce.date(),
-		updated_at: z.coerce.date(),
-		option_values: z.array(
+	options: z
+		.array(
 			z.looseObject({
 				id: z.number(),
-				value: z.string(),
+				name: z.string(),
 				created_at: z.coerce.date(),
-				updated_at: z.coerce.date()
+				updated_at: z.coerce.date(),
+				option_values: z.array(
+					z.looseObject({
+						id: z.number(),
+						value: z.string(),
+						created_at: z.coerce.date(),
+						updated_at: z.coerce.date(),
+					}),
+				),
 			}),
 		)
-	})).nullable(),
+		.nullable(),
 });
 
 export type IntraTransaction = z.infer<typeof intraTransactionSchema>;

@@ -22,13 +22,15 @@ export const intraCampusSchema = z.looseObject({
 	public: z.boolean(),
 	email_extension: z.string().nullable(),
 	default_hidden_phone: z.boolean(),
-	endpoint: z.looseObject({
-		id: z.number(),
-		url: z.string(),
-		description: z.string(),
-		created_at: z.coerce.date(),
-		updated_at: z.coerce.date(),
-	}).nullable(),
+	endpoint: z
+		.looseObject({
+			id: z.number(),
+			url: z.string(),
+			description: z.string(),
+			created_at: z.coerce.date(),
+			updated_at: z.coerce.date(),
+		})
+		.nullable(),
 });
 
 export type IntraCampus = z.infer<typeof intraCampusSchema>;

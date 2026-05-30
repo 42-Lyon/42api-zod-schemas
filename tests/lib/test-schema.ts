@@ -49,7 +49,10 @@ export function testSchemaWithFixtures<T>({
 				validItems.forEach((item, index) => {
 					const result = schema.safeParse(item);
 					if (!result.success) {
-						console.error(`\nFailed: ${resourceName} (${getItemLabel(item)}, index ${index}):`, item);
+						console.error(
+							`\nFailed: ${resourceName} (${getItemLabel(item)}, index ${index}):`,
+							item,
+						);
 						console.error("Validation errors:", result.error);
 					}
 					expect(result.success).toBe(true);

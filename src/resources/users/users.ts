@@ -6,13 +6,12 @@ export const intraUserKindSchema = z.enum(["external", "student", "admin"]);
 
 export const intraUserImageSchema = z.looseObject({
 	link: z.string().nullable(),
-	versions: z
-		.looseObject({
-			large: z.string().nullable(),
-			medium: z.string().nullable(),
-			small: z.string().nullable(),
-			micro: z.string().nullable(),
-		})
+	versions: z.looseObject({
+		large: z.string().nullable(),
+		medium: z.string().nullable(),
+		small: z.string().nullable(),
+		micro: z.string().nullable(),
+	}),
 });
 
 export const intraUserSchema = z.looseObject({
@@ -28,7 +27,7 @@ export const intraUserSchema = z.looseObject({
 	displayname: z.string(),
 	kind: intraUserKindSchema,
 	image: intraUserImageSchema,
-	'staff?': z.boolean(),
+	"staff?": z.boolean(),
 	correction_point: z.number(),
 	pool_month: z.string().nullable(),
 	pool_year: z.string().nullable(),
@@ -39,8 +38,8 @@ export const intraUserSchema = z.looseObject({
 	created_at: z.coerce.date(),
 	updated_at: z.coerce.date(),
 	alumnized_at: z.coerce.date().nullable(),
-	'alumni?': z.boolean(),
-	'active?': z.boolean(),
+	"alumni?": z.boolean(),
+	"active?": z.boolean(),
 });
 
 const intraUserCursusUserSchema = z.looseObject({
@@ -54,7 +53,8 @@ const intraUserCursusUserSchema = z.looseObject({
 			id: z.number(),
 			name: z.string(),
 			level: z.number(),
-		})),
+		}),
+	),
 	cursus_id: z.number(),
 	has_coalition: z.boolean(),
 	blackholed_at: z.coerce.date().nullable(),
@@ -75,7 +75,7 @@ const intraUserProjectsUserSchema = z.looseObject({
 	occurrence: z.number(),
 	final_mark: z.number().nullable(),
 	status: z.string(),
-	'validated?': z.boolean().nullable(),
+	"validated?": z.boolean().nullable(),
 	current_team_id: z.number().nullable(),
 	project: z.looseObject({
 		id: z.number(),
@@ -127,7 +127,7 @@ const intraUserGroupSchema = z.looseObject({
 
 const intraUserTitleSchema = z.looseObject({
 	id: z.number(),
-	name: z.string()
+	name: z.string(),
 });
 
 const intraUserTitleUserSchema = z.looseObject({
@@ -174,7 +174,7 @@ const intraUserExpertiseUserSchema = z.looseObject({
 	value: z.number(),
 	contact_me: z.boolean(),
 	created_at: z.coerce.date(),
-	user_id: z.number()
+	user_id: z.number(),
 });
 
 const intraUserRoleSchema = z.looseObject({

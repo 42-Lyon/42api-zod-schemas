@@ -8,7 +8,7 @@ export const intraAchievementsUserSchema = z.looseObject({
 	nbr_of_success: z.number().nullable(),
 	url: z.url(),
 	created_at: z.coerce.date(),
-	updated_at: z.coerce.date()
+	updated_at: z.coerce.date(),
 });
 
 export type IntraAchievementsUser = z.infer<typeof intraAchievementsUserSchema>;

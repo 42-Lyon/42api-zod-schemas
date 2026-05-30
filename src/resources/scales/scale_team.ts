@@ -24,7 +24,7 @@ export const scaleTeamScaleSchema = z.looseObject({
 			identifier: z.string(),
 			created_at: z.coerce.date(),
 			updated_at: z.coerce.date(),
-		})
+		}),
 	),
 	flags: z.array(innerFlag),
 	free: z.boolean().nullable(),
@@ -60,7 +60,7 @@ export const scaleTeamSchema = z.looseObject({
 			comment: z.string(),
 			rating: z.number(),
 			created_at: z.coerce.date(),
-		})
+		}),
 	),
 });
 
