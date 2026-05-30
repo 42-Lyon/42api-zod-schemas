@@ -11,6 +11,8 @@ export * from './resources/cursus/enums/kind.js';
 export * from './resources/events.js';
 export * from './resources/experiences.js';
 export * from './resources/flags/flag.js';
+export * from './resources/internships/amendment.js';
+export * from './resources/internships/internship.js';
 export * from './resources/pool.js';
 export * from './resources/projects/project.js';
 export * from './resources/projects/projects_user.js';

@@ -116,6 +116,14 @@ const RESOURCES: ResourceConfig[] = [
 		name: "scores",
 		endpoint: "/v2/scores?sort=-updated_at",
 		maxPage: 50,
+	},
+	{
+		name: "internships",
+		endpoint: "/v2/internships",
+	},
+	{
+		name: "amendments",
+		endpoint: "/v2/amendments",
 	}
 ];
 

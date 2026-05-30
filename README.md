@@ -47,8 +47,6 @@ Schemas are exported individually so you can import only what you need:
 import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
 ```
 
-
-
 ## Available Schemas
 
 - achievements
@@ -74,6 +72,8 @@ import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
 - teams_users
 - transactions
 - users
+- internships
+- admendments
   
 Each schema is exported alongside its inferred type (e.g. `intraUserSchema` and `IntraUser`).
 
