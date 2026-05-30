@@ -1,4 +1,4 @@
-import { z } from "zod";
+import z from "zod";
 import { intraUserSchema } from "../users/users.js";
 
 const stateSchema = z.enum(["generated", "invalidated", "need_validation", "uploaded"]);

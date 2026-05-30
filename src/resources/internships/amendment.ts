@@ -1,4 +1,4 @@
-import { z } from "zod";
+import z from "zod";
 
 const intraAmendmentKindSchema = z.enum(["breach", "prolongation", "shortening", "other"]);
 const intraAmendmentOriginSchema = z.enum(["company", "student"]);

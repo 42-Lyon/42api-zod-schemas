@@ -51,6 +51,7 @@ import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
 
 - achievements
 - achievements_users
+- amendments
 - blocs
 - campus
 - close
@@ -60,20 +61,19 @@ import { projectSchema } from '@42-lyon/42api-zod-schemas/project';
 - events
 - experiences
 - flags
+- internships
 - pool
 - projects
 - projects_user
 - quests
-- scales
 - scale_teams
+- scales
 - scores
 - teams
 - teams_uploads
 - teams_users
 - transactions
 - users
-- internships
-- admendments
   
 Each schema is exported alongside its inferred type (e.g. `intraUserSchema` and `IntraUser`).
 
