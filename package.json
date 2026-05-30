@@ -20,7 +20,9 @@
     "prepublishOnly": "rm -rf dist && npm run build",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
-    "fetch-fixtures": "node --loader ts-node/esm scripts/fetch-fixtures.ts"
+    "fetch-fixtures": "node --loader ts-node/esm scripts/fetch-fixtures.ts",
+    "format": "prettier --write .",
+    "prettier": "prettier --check ."
   },
   "dependencies": {
     "zod": "^4.1.12"
@@ -32,6 +34,7 @@
     "@types/node": "^25.0.1",
     "dotenv": "^17.2.3",
     "jest": "^30.2.0",
+    "prettier": "^3.8.3",
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
