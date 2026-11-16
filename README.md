@@ -56,6 +56,7 @@ import { projectSchema } from "@42-lyon/42api-zod-schemas/project";
 - close
 - coalitions
 - coalitions_users
+- community_services
 - cursus_users
 - events
 - experiences

@@ -12,7 +12,7 @@ dotenv.config();
 const CLIENT_ID = process.env.INTRA_CLIENT_ID || "";
 const CLIENT_SECRET = process.env.INTRA_CLIENT_SECRET || "";
 const RATE = Number(process.env.INTRA_CLIENT_REQ_PER_SEC) || 2;
-const SCOPES = ["public", "projects"];
+const SCOPES = ["public", "projects", "tig"];
 
 interface ResourceConfig {
 	name: string;
@@ -124,6 +124,16 @@ const RESOURCES: ResourceConfig[] = [
 	{
 		name: "amendments",
 		endpoint: "/v2/amendments",
+	},
+	{
+		name: "closes",
+		endpoint: "/v2/closes",
+		maxPage: 50,
+	},
+	{
+		name: "community_services",
+		endpoint: "/v2/community_services",
+		maxPage: 50,
 	},
 ];
 
