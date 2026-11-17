@@ -59,6 +59,7 @@ import { projectSchema } from "@42-lyon/42api-zod-schemas/project";
 - community_services
 - cursus_users
 - events
+- events_users
 - experiences
 - flags
 - internships

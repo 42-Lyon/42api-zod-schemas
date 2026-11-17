@@ -135,6 +135,16 @@ const RESOURCES: ResourceConfig[] = [
 		endpoint: "/v2/community_services",
 		maxPage: 50,
 	},
+	{
+		name: "events",
+		endpoint: "/v2/campus/9/events",
+		maxPage: 50,
+	},
+	{
+		name: "events_users",
+		endpoint: "/v2/events_users?filter[campus_id]=9",
+		maxPage: 50,
+	},
 ];
 
 async function fetchAllFixtures() {
